@@ -1,24 +1,32 @@
 <template>
   <section class="produtos-container">
-    <div v-if="produtos && produtos.length" class="produtos">
-      <div class="produto" v-for="produto in produtos" :key="produto.id">
-        <router-link to="/">
-          <img
-            v-if="produto.fotos"
-            :src="produto.fotos[0].src"
-            :alt="produto.fotos[0].titulo"
-          />
-          <p class="preco">{{ produto.preco }}</p>
-          <h2 class="titulo">{{ produto.nome }}</h2>
-          <p>{{ produto.descricao }}</p>
-        </router-link>
+    <transition mode="out-in">
+      <div v-if="produtos && produtos.length" class="produtos" key="produtos">
+        <div class="produto" v-for="(produto, index) in produtos" :key="index">
+          <router-link :to="{ name: 'produto', params: { id: produto.id } }">
+            <img
+              v-if="produto.fotos"
+              :src="produto.fotos[0].src"
+              :alt="produto.fotos[0].titulo"
+            />
+            <p class="preco">{{ produto.preco | numberPrice}}</p>
+            <h2 class="titulo">{{ produto.nome }}</h2>
+            <p>{{ produto.descricao }}</p>
+          </router-link>
+        </div>
+        <produtos-paginar
+          :produtosTotal="produtosTotal"
+          :limitPage="limitPage"
+        />
       </div>
-    </div>
-    <div v-else-if="produtos && produtos.length === 0">
-      <p class="sem-resultados">
-        Busca sem resultados. Tente buscar outro termo.
-      </p>
-    </div>
+      <div v-else-if="produtos && produtos.length === 0" key="sem-resultado">
+        <p class="sem-resultados">
+          Busca sem resultados. Tente buscar outro termo.
+        </p>
+      </div>
+
+      <PageLoading v-else key="loading" />
+    </transition>
   </section>
 </template>
 
@@ -26,12 +34,21 @@
 import { api } from "@/services.js";
 import { serialize } from "@/helpers.js";
 
+import ProdutosPaginar from "./ProdutosPaginar.vue";
+import PageLoading from "./PageLoading.vue";
+
 export default {
+  name: "ProdutosLista",
   data() {
     return {
       produtos: null,
       limitPage: 9,
+      produtosTotal: 0,
     };
+  },
+  components: {
+    ProdutosPaginar,
+    PageLoading,
   },
   computed: {
     url() {
@@ -41,10 +58,14 @@ export default {
   },
   methods: {
     getProdutos() {
-      api.get(this.url).then((response) => {
-        console.log(response.data);
-        this.produtos = response.data;
-      });
+      this.produtos = null;
+      setTimeout(() => {
+        api.get(this.url).then((response) => {
+          this.produtosTotal = Number(response.headers["x-total-count"]);
+          console.log(response);
+          this.produtos = response.data;
+        });
+      }, 1500);
     },
   },
   watch: {
