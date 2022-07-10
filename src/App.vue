@@ -76,4 +76,26 @@ img {
 #main {
   flex: 1;
 }
+
+input,
+textarea {
+  border-radius: 4px;
+  border: 1px solid #fff;
+  box-shadow: 0 4px 8px rgba(30, 60, 90, 0.1);
+  transition: all 0.3s;
+  padding: 15px;
+  margin-bottom: 15px;
+  outline: none;
+  font-size: 1rem;
+  font-family: "Avenir", Arial, Helvetica, sans-serif;
+}
+
+input:focus,
+input:hover,
+textarea:focus,
+textarea:hover {
+  box-shadow: 0 6px 12px rgba(30, 60, 90, 0.2);
+  outline: none;
+  border-color: #87f;
+}
 </style>

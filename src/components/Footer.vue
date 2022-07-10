@@ -18,6 +18,6 @@ footer {
   font-size: 1rem;
   color: #fff;
   position: relative;
-  /* top: 75px; */
+  top: 75px;
 }
 </style>
