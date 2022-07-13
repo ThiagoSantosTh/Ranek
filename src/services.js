@@ -15,12 +15,30 @@ export const api = {
 
   /**
    *
+   * @returns Atualizando os dados da API
+   */
+
+  put(endpoint, body) {
+    return url.put(endpoint, body);
+  },
+
+  /**
+   *
    * @param {endpoint} url: Buscando a API pela URL7
    * @param {body} Body: Dados a serem enviados para a API
    */
 
   post(endpoint, body) {
     return url.post(endpoint, body);
+  },
+
+  /**
+   *
+   * @param {*} endpoint
+   * @returns Deletando a API pela URL
+   */
+  delete(endpoint) {
+    return url.delete(endpoint);
   },
 };
 
