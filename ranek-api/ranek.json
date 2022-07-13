@@ -1019,6 +1019,22 @@
       "vendido": "false",
       "descricao": "Esse é um novo tablet.",
       "fotos": null
+    },
+    {
+      "nome": "Tablet",
+      "preco": "500",
+      "descricao": "Esse úm tablet 2 de ram ",
+      "fotos": null,
+      "usuario_id": "maria@origamid.com",
+      "id": "MLS_cPp"
+    },
+    {
+      "nome": "Carro de brinquedo",
+      "preco": "60",
+      "descricao": "Carro novinho pro seu filho",
+      "fotos": null,
+      "usuario_id": "maria@origamid.com",
+      "id": "Qs8xFU4"
     }
   ]
 }
