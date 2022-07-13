@@ -23,3 +23,12 @@ export const api = {
     return url.post(endpoint, body);
   },
 };
+
+/**
+ *
+ * @param cep
+ * @returns Consulta de Endereço
+ */
+export function getCep(cep) {
+  return axios.get(`https://viacep.com.br/ws/${cep}/json/`);
+}
