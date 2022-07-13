@@ -10,6 +10,41 @@
       "numero": "25",
       "estado": "RJ",
       "cidade": "Rio de Janeiro"
+    },
+    {
+      "id": "thiago@origamid.com",
+      "email": "thiago@origamid.com",
+      "nome": "Thiago Santos",
+      "senha": "123",
+      "rua": "Rua Ali Perto",
+      "cep": "12345678",
+      "numero": "25",
+      "estado": "BA",
+      "cidade": "Salvador"
+    },
+    {
+      "id": "maria@origamid.com",
+      "nome": "Maria das Neves",
+      "email": "maria@origamid.com",
+      "senha": "123",
+      "cep": "22640102",
+      "rua": "Avenida das Américas",
+      "numero": "02",
+      "bairro": "Barra da Tijuca",
+      "cidade": "Rio de Janeiro",
+      "estado": "RJ"
+    },
+    {
+      "id": "mariana@origamind.com",
+      "nome": "mariana",
+      "email": "mariana@origamind.com",
+      "senha": "123",
+      "cep": "22640102",
+      "rua": "Avenida das Américas",
+      "numero": "01",
+      "bairro": "Barra da Tijuca",
+      "cidade": "Rio de Janeiro",
+      "estado": "RJ"
     }
   ],
   "produto": [
