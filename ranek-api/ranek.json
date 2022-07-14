@@ -1,4 +1,50 @@
 {
+  "transacao": [
+    {
+      "comprador_id": "andre@origamid.com",
+      "vendedor_id": "andre@origamid.com",
+      "produto": {
+        "id": "notebook",
+        "nome": "Notebook",
+        "usuario_id": "andre@origamid.com",
+        "preco": "4999",
+        "vendido": "false",
+        "descricao": "Esse é um novo notebook.",
+        "fotos": null
+      },
+      "endereco": {
+        "cep": "12345678",
+        "rua": "Rua Ali Perto",
+        "numero": "25",
+        "bairro": "Nazaré",
+        "cidade": "Rio de Janeiro",
+        "estado": "RJ"
+      },
+      "id": 1
+    },
+    {
+      "comprador_id": "teste@exemplo.com",
+      "vendedor_id": "andre@origamid.com",
+      "produto": {
+        "id": "notebook",
+        "nome": "Notebook",
+        "usuario_id": "andre@origamid.com",
+        "preco": "4999",
+        "vendido": "false",
+        "descricao": "Esse é um novo notebook.",
+        "fotos": null
+      },
+      "endereco": {
+        "cep": "49095-310",
+        "rua": "Rua Patrulheiro Pedro Leite de Oliveira",
+        "numero": "05",
+        "bairro": "Jabotiana",
+        "cidade": "Aracaju",
+        "estado": "SE"
+      },
+      "id": 2
+    }
+  ],
   "usuario": [
     {
       "id": "andre@origamid.com",
@@ -45,6 +91,18 @@
       "bairro": "Barra da Tijuca",
       "cidade": "Rio de Janeiro",
       "estado": "RJ"
+    },
+    {
+      "id": "teste@exemplo.com",
+      "nome": "teste",
+      "email": "teste@exemplo.com",
+      "senha": "123",
+      "cep": "49095-310",
+      "rua": "Rua Patrulheiro Pedro Leite de Oliveira",
+      "numero": "05",
+      "bairro": "Jabotiana",
+      "cidade": "Aracaju",
+      "estado": "SE"
     }
   ],
   "produto": [
@@ -1051,6 +1109,15 @@
       "fotos": null,
       "usuario_id": "andre@origamid.com",
       "id": "Uez_KBZ"
+    },
+    {
+      "nome": "FDSF",
+      "preco": "547",
+      "descricao": "GFDG",
+      "fotos": null,
+      "vendido": "false",
+      "usuario_id": "maria@origamid.com",
+      "id": "wFR9d_w"
     }
   ]
 }
