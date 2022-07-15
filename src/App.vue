@@ -14,10 +14,25 @@
 import Header from "./components/Header.vue";
 import Footer from "./components/Footer.vue";
 
+import { api } from "./services";
+
 export default {
   components: {
     Header,
     Footer,
+  },
+  //Ao ser criado, tentar logar o usuário, caso exista o token
+  created() {
+    if (localStorage.token) {
+      api
+        .validateToken()
+        .then(() => {
+          this.$store.dispatch("getUsuario");
+        })
+        .catch(() => {
+          localStorage.removeItem("token");
+        });
+    }
   },
 };
 </script>

@@ -60,9 +60,7 @@ export const api = {
   },
 
   validateToken() {
-    return axios.post(
-      "http://ranekapi.local/wp-json/jwt-auth/v1/token/validate"
-    );
+    return url.post("http://ranekapi.local/wp-json/jwt-auth/v1/token/validate");
   },
 };
 

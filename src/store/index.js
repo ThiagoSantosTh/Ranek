@@ -80,6 +80,8 @@ export default new Vuex.Store({
         cidade: "",
         estado: "",
       });
+      //Removendo o token do localStorage
+      localStorage.removeItem("token");
       context.commit("UPDATE_LOGIN", false);
     },
   },
