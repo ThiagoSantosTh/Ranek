@@ -32,6 +32,9 @@ const routes = [
     path: "/usuario",
     name: "usuario",
     component: Usuario,
+    meta: {
+      login: true,
+    },
     children: [
       {
         //Inicial do usuario: Quando o usuario entrar na pagina, ele vai para a lista dos produtos
@@ -65,6 +68,18 @@ const router = new VueRouter({
   scrollBehavior() {
     return window.scrollTo({ top: 0, behavior: "smooth" });
   },
+});
+
+//Adicionando a Navigation Guard para verificar se o usuario esta logado
+router.beforeEach((to, from, next) => {
+  if (to.matched.some((record) => record.meta.login)) {
+    if (!localStorage.token) {
+      next("/login");
+    } else {
+      next();
+    }
+  }
+  next();
 });
 
 export default router;
