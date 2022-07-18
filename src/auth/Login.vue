@@ -9,9 +9,14 @@
       <input type="password" name="senha" id="senha" v-model="login.senha" />
 
       <button class="btn" @click.prevent="logar">Entrar</button>
+      <ErroNotificacao :erros="erros" />
     </form>
     <p class="perdeu">
-      <a href="/" target="_blank">Perdeu a senha? Clique aqui.</a>
+      <a
+        href="http://ranekapi.local/wp-login.php?action=lostpassword"
+        target="_blank"
+        >Perdeu a senha? Clique aqui.</a
+      >
     </p>
     <Register />
   </section>
@@ -19,6 +24,7 @@
 
 <script>
 import Register from "./Register.vue";
+import ErroNotificacao from "../components/ErroNotificacao.vue";
 
 export default {
   name: "LoginAuth",
@@ -28,18 +34,27 @@ export default {
         email: "",
         senha: "",
       },
+      erros: [],
     };
   },
   components: {
     Register,
+    ErroNotificacao,
   },
   methods: {
     logar() {
-      this.$store.dispatch("logarUsuario", this.login).then((response) => {
-        console.log(response);
-        this.$store.dispatch("getUsuario");
-        this.$router.push({ name: "usuario" });
-      });
+      this.erros = [];
+      this.$store
+        .dispatch("logarUsuario", this.login)
+        .then((response) => {
+          console.log(response);
+          this.$store.dispatch("getUsuario");
+          this.$router.push({ name: "usuario" });
+        })
+        .catch((error) => {
+          console.log(error.response);
+          this.erros.push(error.response.data.message);
+        });
     },
   },
 };
