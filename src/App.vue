@@ -114,6 +114,7 @@ textarea {
   outline: none;
   font-size: 1rem;
   font-family: "Avenir", Arial, Helvetica, sans-serif;
+  width: 100%;
 }
 
 input:focus,
