@@ -84,6 +84,11 @@ img {
   transform: scale(1.1);
 }
 
+.btn-disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
 #app {
   display: flex;
   flex-direction: column;
